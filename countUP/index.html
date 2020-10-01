@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="down"> - </button>
+    <input type="number" id="count" value="0" />
+    <button id="up">+</button>
+    <script>
+      const up = document.getElementById("up");
+      const down = document.getElementById("down");
+      var count = document.getElementById("count");
+      var countUp = parseFloat(count.value);
+
+      up.addEventListener("click", () => {
+        countUp = countUp + 0.25;
+        // console.log(countUp);
+        num = countUp;
+        count.value = num;
+      });
+      down.addEventListener("click", () => {
+        countUp = countUp - 0.25;
+        // console.log(countUp);
+        num = countUp;
+        count.value = num;
+      });
+    </script>
+  </body>
+</html>
