@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +10,14 @@
     <div id="app" class="contaier">
       <h1>My Todos</h1>
       <ul>
-        <li v-for="todo in todos">{{ todo }}</li>
+        <li v-for="(todo, index) in todos">
+          <input type="checkbox" v-model="todo.isDone" name="" id="" />
+          <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+          <span @click="deleteItem(index)" class="command">[×]</span>
+        </li>
+        <li v-show="!todos.length">Nothisg to do, Yes!</li>
       </ul>
+
       <form @submit.prevent="addItem">
         <input type="text" v-model="newItem" />
         <input type="submit" value="Add" />

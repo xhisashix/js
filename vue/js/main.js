@@ -5,12 +5,21 @@
     el: '#app',
     data: {
       newItem: '',
-      todos: ['list1', 'list2', 'list3', 'list4'],
+      todos: [],
     },
     methods: {
       addItem: function () {
-        this.todos.push(this.newItem);
+        var item = {
+          title: this.newItem,
+          isDone: false,
+        };
+        this.todos.push(item);
         this.newItem = '';
+      },
+      deleteItem: function (index) {
+        if (confirm('Are you sure')) {
+          this.todos.splice(index, 1);
+        }
       },
     },
   });
