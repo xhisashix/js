@@ -17,7 +17,7 @@
         this.newItem = '';
       },
       deleteItem: function (index) {
-        if (confirm('Are you sure')) {
+        if (confirm('本当に消しますか')) {
           this.todos.splice(index, 1);
         }
       },
