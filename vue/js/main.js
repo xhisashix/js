@@ -5,7 +5,31 @@
     el: '#app',
     data: {
       newItem: '',
-      todos: [],
+      todos: [
+        {
+          title: 'task 1',
+          isDone: false,
+        },
+        {
+          title: 'task 2',
+          isDone: false,
+        },
+        {
+          title: 'task 3',
+          isDone: true,
+        },
+      ],
+    },
+    watch: {
+      todos: function () {
+        handler: {
+          localStorage.setItem('todos', JSON.stringify(this.todos));
+        }
+        deep: true;
+      },
+    },
+    mounted: function () {
+      this.todos = JSON.parse(localStorage.getItem('todos')) || [];
     },
     methods: {
       addItem: function () {
@@ -17,9 +41,22 @@
         this.newItem = '';
       },
       deleteItem: function (index) {
-        if (confirm('本当に消しますか')) {
+        if (confirm('このタスクをに消しますか')) {
           this.todos.splice(index, 1);
         }
+      },
+      purge: function () {
+        if (!confirm('完了したタスクを削除しますか')) {
+          return;
+        }
+        this.todos = this.remaining;
+      },
+    },
+    computed: {
+      remaining: function () {
+        return this.todos.filter(function (todo) {
+          return !todo.isDone;
+        });
       },
     },
   });
