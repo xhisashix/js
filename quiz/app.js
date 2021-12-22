@@ -1,28 +1,47 @@
 const quiz = [
   {
-    question: 'ゲーム史上、最も売れたゲーム機はどれ？',
-    answers: [
-      'スーパーファミコン',
-      'PlayStation 2',
-      'ニンテンドーDS',
-      'Xbox 360',
-    ],
-    correct: 'ニンテンドーDS',
+    question: '質問１',
+    answers: ['はい', 'いいえ'],
   },
   {
-    question: '糸井重里が企画に関わった、任天堂の看板ゲームといえば？',
-    answers: [
-      'MOTHER2',
-      'スーパーマリオブラザーズ3',
-      'スーパードンキーコング',
-      '星のカービィ',
-    ],
-    correct: 'MOTHER2',
+    question: '質問2',
+    answers: ['はい', 'いいえ'],
   },
   {
-    question: 'ファイナルファンタジーⅣの主人公の名前は？',
-    answers: ['フリオニール', 'クラウド', 'ティーダ', 'セシル'],
-    correct: 'セシル',
+    question: '質問3',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
+  },
+  {
+    question: '質問１',
+    answers: ['Yes', 'No'],
   },
 ]
 
@@ -33,7 +52,7 @@ const $buttons = $doc.querySelectorAll('.btn')
 
 const quizLen = quiz.length
 let quizCount = 0
-let score = 0
+let score = []
 
 const init = () => {
   $question.textContent = quiz[quizCount].question
@@ -58,27 +77,23 @@ const goToNext = () => {
 }
 
 const judge = (elm) => {
-  if (elm.textContent === quiz[quizCount].correct) {
-    $window.alert('正解!')
-    score++
+  if (elm.textContent === "Yes") {
+    score.push(0)
   } else {
-    $window.alert('不正解!')
+    score.push(1)
   }
+  console.log(score)
   goToNext()
 }
-
 const showEnd = () => {
   $question.textContent =
     '終了！あなたのスコアは' + score + '/' + quizLen + 'です'
   const $items = $doc.getElementById('js-items')
   $items.style.visibility = 'hidden'
 }
-
 init()
-
 let answersIndex = 0
 let answersLen = quiz[quizCount].answers.length
-
 while (answersIndex < answersLen) {
   $buttons[answersIndex].addEventListener('click', (e) => {
     judge(e.target)
