@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      "use strict";
-      console.log("Hello World");
-      console.log("Hello World agein");
-    </script>
-    <script src="js/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <div id="app">
+    <div>
+      <ul>
+        <li v-for="job in jobs" :key="job.key">
+          {{ job.name }}
+        </li>
+      </ul>
+    </div>
+    <form v-on:submit.prevent="addJob">
+      <input type="text" v-model="newJobName">
+      <input type="submit" value="タスクを完了する">
+    </form>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        jobs: [
+          { name: 'プログラミング', key: 1 },
+          { name: '漫画', key: 2 },
+          { name: '映画', key: 3 }
+        ],
+        newJobName: ''
+      },
+      methods: {
+        addJob() {
+          this.jobs.push({
+            name: this.newJobName,
+            key: this.jobs.length + 1
+          });
+          this.newJobName = '';
+        }
+      },
+    })
+  </script>
+</body>
+
 </html>
