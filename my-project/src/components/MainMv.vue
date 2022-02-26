@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import ListArea from "../ListArea.vue"
+import ListArea from "./ListArea.vue"
 export default {
   name: 'MainMv',
   components: {

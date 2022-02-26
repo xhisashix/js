@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import NavList from "../NavList.vue"
+import NavList from "./NavList.vue"
 export default {
   name: 'SideBar',
   components: {
