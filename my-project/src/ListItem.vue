@@ -5,10 +5,12 @@
 </template>
 <script>
 export default {
-  props:[
-    "dream"
-  ]
-}
+  props: {
+    dream: {
+      type: Object,
+    },
+  },
+};
 </script>
 <style>
 .list-item {
