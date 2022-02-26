@@ -5,7 +5,7 @@
           <router-link to="/">Home</router-link>
         </li>
         <li class="nav-list-item">
-          <router-link to="/sample">Sample</router-link>
+          <router-link to="/sample-page">Sample</router-link>
         </li>
       </ul>
   </div>

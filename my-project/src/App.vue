@@ -1,16 +1,14 @@
 <template>
   <div id="app">
     <side-bar></side-bar>
-    <main-mv></main-mv>
+    <router-view/>
   </div>
 </template>
 <script>
-import MainMv from "./components/MainMv.vue"
 import SideBar from "./components/SideBar.vue"
 export default {
   name: "App",
   components: {
-    MainMv,
     SideBar,
   },
 };

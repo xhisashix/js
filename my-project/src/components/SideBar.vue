@@ -15,7 +15,7 @@ export default {
 </script>
 <style>
 .sidebar-container {
-  width: 20%;
+  width: 20vw;
   background: #fff;
 }
 .sidebar-container h1 {
