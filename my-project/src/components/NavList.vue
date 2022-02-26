@@ -1,12 +1,13 @@
 <template>
   <div>
-    <nav class="nav-list-wrapper">
-      <ul class="nav-list">
-        <li class="nav-list-item"><a href="#">リンク1</a></li>
-        <li class="nav-list-item"><a href="#">リンク2</a></li>
-        <li class="nav-list-item"><a href="#">リンク3</a></li>
+    <ul class="nav-list">
+        <li class="nav-list-item">
+          <router-link to="/">Home</router-link>
+        </li>
+        <li class="nav-list-item">
+          <router-link to="/sample">Sample</router-link>
+        </li>
       </ul>
-    </nav>
   </div>
 </template>
 <style>
