@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="open" @click="toggleOpen">詳細を見る</div>
+      <div id="mask" :class="{ hidden: hidden }"></div>
+      <section id="modal" :class="{ hidden: hidden }">
+        <p>
+          こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+        </p>
+        <div id="close" @click="toggleOpen">閉じる</div>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/vue.js"></script>
+  </body>
+</html>
